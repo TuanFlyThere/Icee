@@ -1,287 +1,1121 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <title>TuanFly | There</title>
-  </head>
-  <body>
-    <nav>
-      <div class="nav__logo"><a href="#">LAST DANCE</a></div>
-      <ul class="nav__links">
-        <li class="link">Home</li>
-        <li class="link">Blog</li>
-        <li class="link">Offers</li>
-        <li class="link">Services</li>
-        <li class="link">Contacts</li>
-      </ul>
-    </nav>
-    <header>
-      <div class="section__container">
-        <div class="header__content">
-          <h1>DREAMER</h1>
-          <p>
-            YOU'RE NEVER TOO YOUNG FOR BIG DREAM! I LOVE TO MAKE PEOPLE LAUGH & SMILE. FOR YOU, FOR ME AND MORE.
-          </p>
-          
-            <div class="music">
-              <div class="music-bars">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <img src="assets/play.png" id="icon_music" >
-              <div class="music-bars">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-          
-        </div>
-      </div>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap");
 
-      <audio id="mySong">
-        <source src="assets/song.mp3" type="audio/mp3">
-      </audio>
+:root {
+  --primary-color: #669ccb;
+  --primary-color-dark: #5681a7;
+  --secondary-color: #e8f1fa;
+  --text-dark: #282d31;
+  --text-light: #767268;
+  --extra-light: #f3f4f6;
 
-      <script>
-        var mySong = document.getElementById("mySong");
-        var icon_music = document.getElementById("icon_music");
+  --max-width: 1200px;
+}
 
-        icon_music.onclick = function(){
-          if(mySong.paused){
-            mySong.play();
-            icon_music.src = "assets/pause.png"
-          }else{
-            mySong.pause();
-            icon_music.src = "assets/play.png"
-          }
-        }
-      </script>
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  padding: 5rem 1rem;
+  max-width: var(--max-width);
+  margin: auto;
+  
+}
+
+.section__title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section__subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--primary-color);
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo a {
+  text-decoration: none;
+  color: var(--extra-light);
+  font-size: 1.5rem;
+  font: italic small-caps bold 12px/30px Georgia, serif;
+}
+
+.nav__links {
+  display: none;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link {
+  color: var(--extra-light);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: var(--primary-color);
+}
+
+header {
+  height: 100vh;
+  background-image: linear-gradient(
+      rgba(45, 92, 132, 0.5),
+      rgba(45, 92, 132, 0.5)
+    ),
+    url("assets/bg-1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header .section__container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  color: var(--extra-light);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  border-radius: 6px;
+}
 
 
-    </header>
+.music-bars {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 60px; /* tăng chiều cao vùng hiển thị */
+}
+.music-bars span {
+  width: 4px;
+  background: white;
+  animation: bounce 1s infinite ease-in-out;
+  border-radius: 2px;
+  margin:auto;
+}
+.music-bars span:nth-child(1) { animation-delay: 0s; }
+.music-bars span:nth-child(2) { animation-delay: 0.1s; }
+.music-bars span:nth-child(3) { animation-delay: 0.2s; }
+.music-bars span:nth-child(4) { animation-delay: 0.3s; }
+.music-bars span:nth-child(5) { animation-delay: 0.4s; }
+.music-bars span:nth-child(6) { animation-delay: 0.5s; }
+.music-bars span:nth-child(7) { animation-delay: 0.6s; }
+.music-bars span:nth-child(8) { animation-delay: 0.7s; }
+.music-bars span:nth-child(9) { animation-delay: 0.8s; }
+.music-bars span:nth-child(10) { animation-delay: 0.9s; }
 
-    <section class="journey__container">
-      <div class="section__container">
-        <h2 class="section__title">EK40 THPT QUANG TRUNG</h2>
-        <p class="section__subtitle">8/2018 - 7/2021</p>
-        <div class="journey__grid">
-          <div class="country__card">
-            <img src="assets/country-1.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-check-line"></i>
-              <span>2021</span>
-            </div>
-          </div>
-          <div class="country__card">
-            <img src="assets/country-2.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-check-line"></i>
-              <span>2021</span>
-            </div>
-          </div>
-          <div class="country__card">
-            <img src="assets/country-3.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-check-line"></i>
-              <span>2020</span>
-            </div>
-          </div>
-          <div class="country__card">
-            <img src="assets/country-4.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-event-line"></i>
-              <span>2021</span>
-            </div>
-          </div>
-          <div class="country__card">
-            <img src="assets/country-5.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-event-line"></i>
-              <span>2021</span>
-            </div>
-          </div>
-          <div class="country__card">
-            <img src="assets/country-6.jpg" alt="country" />
-            <div class="country__name">
-              <i class="ri-calendar-event-line"></i>
-              <span>2021</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+@keyframes bounce {
+  0%, 100% { height: 10px; }
+  50% { height: 20px; } /* 👈 kéo dài sóng ra */
+}
+
+
+
+.music {
+  float:left;
+  margin: 3px;
+  display: flex;;
+  align-items: center;
+  }
+
+
+#icon_music {
+  width: 70px;
+  cursor: pointer;
+}
+
+.header__content h1 {
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 5rem;
+}
+
+.header__content p {
+  text-align: center;
+}
+
+.header__content button {
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--extra-light);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header__content button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.journey__container {
+  background-color: #fff;
+}
+
+.journey__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  
+}
+
+.country__card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  border: 2px solid transparent;
+  border-color: #90a4ae;
+}
+
+.country__card:hover {
+  transform: translateY(-4px);
+}
+
+.country__card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.country__card:hover img {
+  transform: scale(1.03);
+}
+
+
+.country__name {
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.country__name i {
+  font-size: 1.2rem;
+}
+
+.country__name span {
+  font-style: italic;
+}
+
+.showcase{
+    padding: 80px 60px 100px;
+    background: #e5e7eb;
+}
+
+.showcase__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.showcase__header h3{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.showcase__header .btn{
+    font-size: 13px;
+    padding: 5px 16px;
+    color: #fff;
+    background: #1f2937;
+    border-color: #1f2937;
+}
+
+.showcase_categories .category:first-child{
+    margin-bottom: 100px;
+}
+
+.category__header{
+    display: flex;
+    align-items: center;
+}
+
+.category__title,
+.category__desc{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.category__title{
+    gap: 12px;
+}
+
+.category__title h4{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.category__title i{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.category__desc{
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.category__desc p{
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.category__desc a{
+    font-size: 22px;
+}
+
+.category__projects{
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.project-card{
+    position: relative;
+    width: 25%;
+    height: 420px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-card__image{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-position: top center;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+
+.project-card__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.project-card__info h5{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.project-card__info p{
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.project-card__desc{
+    font-size: 13px;
+    color: #7a7a7a;
+    margin-bottom: 30px;
+}
+
+.project-card .btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 8px 20px;
+    border-radius: 16px 0 10px 0;
+    border: none;
+    color: #fff;
+    background: #1f2937;
+}
+
+.project-card .btn:hover{
+    background: #000;
+}
+
+/* ---------------------------------------------------*/
+.portfolio{
+    background-color: #deebee;
+    padding: 110px 85px;
+}
+
+.portfolio .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.portfolio .header button{
+    background-color: #ff0000;
+    padding: 10px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+    border: none;
+    border-radius: 10px;
+}
+
+.portfolio .header button i{
+    font-size: 26px;
+}
+
+.portfolio .portfo-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio .portfo-items .item{
+    width: 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 5px 32px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.portfolio .portfo-items .item:hover{
+    border-color: #5e3bee;
+}
+
+.portfolio .portfo-items .item img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px 10px 20px 20px;
+}
+
+.portfolio .portfo-items .item .info{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 32px 42px;
+}
+
+.portfolio .portfo-items .item .info p{
+    font-size: 13px;
+}
+
+.portfolio .portfo-items .item .info a{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #5e3bee;
+}
+
+.portfolio .portfo-items .item .info a i{
+    margin-left: 2px;
+    font-size: 16px;
+}
+
+.feedback{
+    padding: 110px 85px;
+}
+
+.feedback .customers{
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+}
+
+.feedback .customers .item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px solid #006b6a;
+    border-radius: 10px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.feedback .customers .item .rating{
+    color: #006b6a;
+    font-size: 22px;
+}
+
+.feedback .customers .item:hover{
+    border-color: #5e3bee;
+}
+
+.feedback .customers .item p{
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.feedback .customers .item .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feedback .customers .item .user img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.feedback .customers .item .user h5{
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.feedback .customers .item .user p{
+    font-size: 12px;
+}
+
+footer{
+    background-color: #deebee;
+    padding: 85px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .top,
+footer .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .top .social-links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+}
+
+footer .separator{
+    width: 100%;
+    height: 1px;
+    background-color: #282938;
+    margin: 30px 0 20px;
+}
+
+footer .bottom p{
+    font-size: 12px;
+}
+
+footer .bottom .links a{
+    font-size: 12px;
+    margin-left: 14px;
+}
+
+@media screen and (max-width: 1200px) {
     
+    .main .left h5{
+        font-size: 18px;
+    }
+
+    .main .left h3{
+        font-size: 36px;
+    }
+
+    .main .left p{
+        font-size: 18px;
+    }
+
+    .main .right img{
+        width: 380px;
+    }
+
+    .skills .skill-items{
+        gap: 10px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .skills .skill-items .item{
+        width: 49%;
+    }
+
+    .about .left img{
+        width: 370px;
+    }
+
+    .skills h3,
+    .about .right h3,
+    .portfolio .header h3,
+    .feedback h3{
+        font-size: 32px;
+    }
+
+    .about .right p{
+        font-size: 15px;
+    }
+
+    .feedback .customers .item .rating{
+        font-size: 20px;
+    }
+
+    .feedback .customers .item p{
+        font-size: 13px;
+    }
+
+    footer .top ul{
+        gap: 20px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
     
+    nav button{
+        display: none;
+    }
 
+    nav ul{
+        gap: 20px;
+    }
 
-    <section class="banner__container">
-      <div class="section__container">
-        <div class="banner__content">
-          <h2>LAMAVERLA</h2>
-          <p>
-                First, you both go out your way and the vibe is feelin' strong
-                And what's small turned to a friendship, a friendship turned to a bond
-                And that bond'll never be broken, the love will never get lost
-                (The love never get lost)
-          </p>
-          <button>HOLD ON</button>
-        </div>
-      </div>
-    </section>
+    nav ul li a{
+        font-size: 15px;
+    }
 
-<!-- ------------------------------------------ -->        
-    <div class="portfolio" id="portfolio">
-        <div class="header">
-            <div class="info">
-                <h5>Recent Projects</h5>
-                <h3>My Portfolio</h3>
-            </div>
-            <button><i class='bx bxl-youtube'></i> Visit My Youtube</button>
-        </div>
+    .main{
+        flex-direction: column;
+    }
 
-        <div class="portfo-items">
-            <div class="item">
-                <img src="assets/sc-1.jpg">
-                <div class="info">
-                    <h4>Portfolio #3</h4>
-                    <p>
-                        THPT QUNAG TRUNG
-                    </p>
-                    
-                </div>
-            </div>
-            <div class="item">
-                <img src="assets/sc-2.jpg">
-                <div class="info">
-                    <h4>Simple Blog Page</h4>
-                    <p>
-                        THPT QUNAG TRUNG
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="assets/sc-2.jpg">
-                <div class="info">
-                    <h4>Simple Blog Page</h4>
-                    <p>
-                        THPT QUNAG TRUNG
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="assets/sc-3.jpg">
-                <div class="info">
-                    <h4>Animated Nav</h4>
-                    <p>
-                        THPT Quang Trung
-                    </p>
-                    
-                </div>
-            </div>
-        </div>
+    .about{
+        flex-direction: column;
+        justify-content: center;
+    }
 
-    </div>
+    .portfolio .portfo-items{
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-<!--------------------------------------------- -->
-    <h1 class="title">TUAN BAY THERE</h1>
-<div class="slider" x-data="{start: true, end: false}">
-  <div class="slider__content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me1.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    .portfolio .portfo-items .item{
+        width: 48%;
+    }
+
+    .feedback .customers{
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .feedback .customers .item{
+        width: 48%;
+    }
+
+    footer .top ul{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
     
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me2.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    nav{
+        justify-content: space-between;
+        padding: 0 42px;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me3.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    nav ul{
+        display: none;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me4.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    nav.open .logo{
+        display: none;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me5.png" alt="Image">
-      <div class="slider__info">
-        <h2>This is a card</h2>
-      </div>
-    </div>
+    nav.open ul{
+        display: flex;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me6.png" alt="Image">
-      <div class="slider__info">
-        <h2>This is a card</h2>
-      </div>
-    </div>
+    nav button#menuButton{
+        display: flex;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me7.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    .main{
+        padding: 42px;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me8.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    .skills{
+        padding: 85px 42px 0;
+    }
 
-    <div class="slider__item">
-      <img class="slider__image" src="assets/me9.png" alt="Image">
-      <div class="slider__info">
-        <h2>20.10.2020</h2>
-      </div>
-    </div>
+    .skills .skill-items{
+        gap: 8px;
+    }
+
+    .about{
+        padding: 85px 42px;
+    }
+
+    .portfolio{
+        padding: 60px 42px;
+    }
+
+    .portfolio .portfo-items{
+        gap: 18px;
+    }
+
+    .feedback{
+        padding: 85px 42px;
+    }
+
+    footer{
+        padding: 85px 42px;
+    }
+
+    footer .bottom{
+        flex-direction: column-reverse;
+        gap: 14px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
     
-  </div>
-  <div class="slider__nav">
-    <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});" x-bind:class="start ? '' : 'slider__nav__button--active'">Previous</button>
-    <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider__nav__button--active'">Next</button>
-  </div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js'></script><script  src="./script.js"></script>
+    nav ul li a{
+        font-size: 13px;
+    }
 
-    <footer>
-      <div class="section__container">
-        <h4>TuanFly</h4>
-        <div class="social__icons">
-          <span><i class="ri-facebook-fill"></i></span>
-          <span><i class="ri-twitter-fill"></i></span>
-          <span><i class="ri-instagram-line"></i></span>
-          <span><i class="ri-linkedin-fill"></i></span>
-        </div>
-        <p>
-          Nguoi ta hoi the nao la hanh phuc anh lien ke ve nhung ngay thang co e
-        </p>
-      </div>
-    </footer>
+    nav .logo a{
+        font-size: 18px;
+    }
+
+    .main .left h3{
+        font-size: 32px;
+    }
+
+    .main .left p{
+        font-size: 16px;
+    }
+
+    .main .left button{
+        width: 100%;
+    }
+
+    .skills .skill-items .item{
+        width: 100%;
+    }
+
+    .portfolio .header button{
+        font-size: 12px;
+        padding: 8px 14px;
+    }
+
+    .portfolio .portfo-items .item{
+        width: 80%;
+    }
+
+    .feedback .customers .item{
+        width: 100%;
+    }
+
+}
+
+
 
     
+/*----------------------------------------------------*/
+.banner__container {
+  background-image: url("assets/bg-2.jpg");
+ 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner__container .section__container {
+  padding: 10rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.banner__content {
+  display: flex;
+  align-items: flex-start; /* Căn phần tử con sang trái */
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left; /* Chữ nằm bên trái */
+  color: var(--extra-light);
+  
+}
+
+.text_main {
+  color:#fff;
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif ;
+  text-align:left;
+}
+.banner__content h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.banner__content button {
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: 2px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.display__container {
+  background-color: var(--secondary-color);
+}
+
+.display__container :is(.section__title, .section__subtitle) {
+  color: var(--text-dark);
+}
+
+.display__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.display__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--extra-light);
+  text-align: center;
+}
+
+.display__card i {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
 
 
-  </body>
-</html>
+
+.display__grid .grid-1 {
+  grid-area: 1/1/4/3;
+}
+
+footer {
+  background-color: var(--text-dark);
+  color: var(--secondary-color);
+}
+
+footer .section__container {
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+footer h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.social__icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social__icons i {
+  padding: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+footer p {
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  .nav__links {
+    display: flex;
+  }
+
+  header .section__container {
+    justify-content: flex-start;
+  }
+
+  .header__content {
+    max-width: 400px;
+    align-items: flex-start;
+  }
+
+  .header__content p {
+    text-align: left;
+  }
+
+  .journey__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .display__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .display__card {
+    gap: 0;
+  }
+
+  .display__card i {
+    font-size: 1.75rem;
+  }
+
+  .display__card h4 {
+    font-size: 1rem;
+  }
+
+  .display__card p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 786px) {
+  .banner__container .section__container {
+    justify-content: flex-end;
+  }
+
+  .banner__content {
+    align-items: flex-end;
+    text-align: right;
+    max-width: 800px;
+  }
+
+  .display__card {
+    gap: 0.5rem;
+  }
+
+  .display__card i {
+    font-size: 2.5rem;
+  }
+
+  .display__card p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .display__card {
+    gap: 1rem;
+  }
+
+  .display__card i {
+    font-size: 3rem;
+  }
+
+  .display__card h4 {
+    font-size: 1.5rem;
+  }
+
+  .display__card p {
+    font-size: 1rem;
+  }
+}
+
+:root {
+    --scrollcolor: #fff;
+    --scrollbackground: #141e27;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    background: #203239;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-family: system-ui;
+    line-height: 1.1;
+    font-weight: 300;
+    color: #fff;
+    margin: 4rem auto 1rem;
+    width: 85%;
+    max-width: 1280px;
+  }
+  
+  .slider {
+    width: 85%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  .slider__content {
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-color: var(--scrollcolor) var(--scrollbackground);
+  }
+  .slider__content::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 1rem;
+    background: var(--scrollbackground);
+  }
+  .slider__content::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: var(--scrollcolor);
+  }
+  .slider__content::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: var(--scrollbackground);
+  }
+  
+  .slider__item {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 100%;
+    width: 100%;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1;
+  }
+  @media (min-width: 460px) {
+    .slider__item {
+      aspect-ratio: 2/3;
+      min-width: calc((100% / 2) - 2rem);
+    }
+  }
+  @media (min-width: 940px) {
+    .slider__item {
+      min-width: calc((100% / 3) - 4rem);
+    }
+  }
+  
+  .slider__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .slider__info {
+    position: relative;
+    padding: 4rem 2rem 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(32, 50, 57, 0));
+  }
+  .slider__info h2 {
+    color: #fff;
+    font-family: system-ui;
+    line-height: 1.1;
+    font-weight: 300;
+    font-size: 1.75rem;
+    margin: 0;
+  }
+  
+  .slider__nav {
+    margin: 1rem 0 4rem;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+  @media (min-width: 460px) {
+    .slider__nav {
+      justify-content: flex-end;
+    }
+  }
+  
+  .slider__nav__button {
+    margin: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border: 0;
+    border-radius: 2rem;
+    background: #fff;
+    color: #203239;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    pointer-events: none;
+    transition: 0.2s ease-out;
+    opacity: 0.25;
+  }
+  .slider__nav__button--active {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+/* END of CSS Coding... */
+
+
