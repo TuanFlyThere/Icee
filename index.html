@@ -119,23 +119,47 @@
     </section>
     
     
+    <!--------------------------------------->
+    <section class="image-slider">
+  <h2 class="slider__heading">📷</h2>
+  <div class="slider__wrapper">
+    <button class="slider__btn prev">&#10094;</button>
+    <div class="slider__track">
+  <img src="assets/b1.png" alt="Ảnh 1" />
+  <img src="assets/b2.png" alt="Ảnh 2" />
+  <img src="assets/b3.png" alt="Ảnh 3" />
+  <img src="assets/b1.png" alt="Ảnh 4" />
+  <img src="assets/b3.png" alt="Ảnh 3" />
+  <img src="assets/b1.png" alt="Ảnh 4" />
+</div>
+
+    <button class="slider__btn next">&#10095;</button>
+  </div>
+</section>
+<script>
+  const track = document.querySelector(".slider__track");
+  const btnPrev = document.querySelector(".slider__btn.prev");
+  const btnNext = document.querySelector(".slider__btn.next");
+
+  const scrollAmount = 310; // 300 (ảnh) + 10 (gap)
+; // bằng chiều rộng ảnh + khoảng cách
+
+  btnPrev.addEventListener("click", () => {
+    track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  btnNext.addEventListener("click", () => {
+    track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+</script>
 
 
-    <section class="banner__container">
-      <div class="section__container">
-        <div class="banner__content">
-          <h2>LAMAVERLA</h2>
-          <p class="text_main">
-                First, you both go out your way and the vibe is feelin' strong
-                And what's small turned to a friendship, a friendship turned to a bond
-                And that bond'll never be broken, the love will never get lost
-                (The love never get lost)
-          </p>
-          <button>HOLD ON</button>
-        </div>
-      </div>
-    </section>
 
+
+    
+    <!----------------------------------------->
+
+    
 <!-- ------------------------------------------ -->        
     <div class="portfolio" id="portfolio">
         <div class="header">
@@ -256,23 +280,33 @@
     <button class="slider__nav__button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider__nav__button--active'">Next</button>
   </div>
 </div>
-<!-- partial -->
+<!-- partial ------------------------------------------->
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js'></script><script  src="./script.js"></script>
 
     <footer>
-      <div class="section__container">
-        <h4>TuanFly</h4>
-        <div class="social__icons">
-          <span><i class="ri-facebook-fill"></i></span>
-          <span><i class="ri-twitter-fill"></i></span>
-          <span><i class="ri-instagram-line"></i></span>
-          <span><i class="ri-linkedin-fill"></i></span>
-        </div>
-        <p>
-          Nguoi ta hoi the nao la hanh phuc anh lien ke ve nhung ngay thang co e
-        </p>
-      </div>
-    </footer>
+  <div class="section__container2">
+    <h4 class="contact_text">TuanFly</h4>
+    <div class="social__icons">
+      <a href="https://www.facebook.com/tuanfly.info/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="ri-facebook-fill"></i>
+      </a>
+      <a href="https://www.instagram.com/amphmeth/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="ri-instagram-line"></i>
+      </a>
+      <a href="https://www.youtube.com/@SkyFall.911" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <i class="ri-youtube-fill"></i>
+      </a>
+      <a href="https://www.tiktok.com/@bonghateu?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="ri-tiktok-fill"></i>
+      </a>
+    </div>
+    <p class="footer-quote">
+      Người ta hỏi thế nào là hạnh phúc, anh bắt đầu kể về những ngày tháng có em
+    </p>
+  </div>
+</footer>
+
 
     
 
