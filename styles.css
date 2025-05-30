@@ -241,6 +241,9 @@ header .section__container {
 .country__name span {
   font-style: italic;
 }
+/* -----------------------------------------*/
+
+/*-----------------------------------------*/
 
 .showcase{
     padding: 80px 60px 100px;
@@ -756,7 +759,7 @@ footer .bottom .links a{
     }
 
     .portfolio .portfo-items .item{
-        width: 80%;
+        width: 100%;
     }
 
     .feedback .customers .item{
